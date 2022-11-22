@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mental_health_app/constant.dart';
 
 import 'package:mental_health_app/screen/DoctorPage/doctor_main_page.dart';
+import 'package:mental_health_app/screen/Home/taskList.dart';
 import 'package:mental_health_app/screen/MusicPage/music_main_page.dart';
 import 'package:mental_health_app/utils/containerForYou.dart';
 import 'package:mental_health_app/utils/emoticon.dart';
@@ -165,9 +166,9 @@ class _HomePageState extends State<HomePage> {
                       height: height * 0.02,
                     ),
                     ContainerHomePage(
-                      boxName: 'Today\'s Practice',
+                      boxName: 'Today\'s Tasks',
                       imgAssert: meditationIcon,
-                      page: DoctorPage(),
+                      page: TaskList(),
                     ),
                   ],
                 ),

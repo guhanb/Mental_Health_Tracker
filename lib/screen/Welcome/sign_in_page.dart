@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_health_app/constant.dart';
 import 'package:mental_health_app/screen/Welcome/login_page.dart';
+import 'package:mental_health_app/utils/navBar.dart';
 //import 'package:mental_health_app/screen/Welcome/log_in_page.dart';
 
 class SignInPage extends StatelessWidget {
@@ -188,7 +189,8 @@ class _signinState extends State<signin> {
           child: ElevatedButton(
               child: const Text('Sign Up'),
               onPressed: () {
-                //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Login()));
                 // print(nameController.text);
                 // print(passwordController.text);
               },

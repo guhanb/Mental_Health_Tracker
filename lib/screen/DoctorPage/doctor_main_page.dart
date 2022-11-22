@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:mental_health_app/constant.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:mental_health_app/screen/DoctorPage/doctorDetails.dart';
 import 'package:mental_health_app/utils/navBar.dart';
 import 'package:scroll_navigation/scroll_navigation.dart';
 
@@ -23,6 +24,8 @@ class _DoctorPageState extends State<DoctorPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: primaryLightColor,
       body: SafeArea(
@@ -56,8 +59,8 @@ class _DoctorPageState extends State<DoctorPage> {
                             ),
                           ),
                           SizedBox(
-                            height: 8.0,
-                          ),
+                              //height: 8.0,
+                              ),
                           Text(
                             date,
                             style: TextStyle(
@@ -86,25 +89,59 @@ class _DoctorPageState extends State<DoctorPage> {
                 height: 20,
               ),
               GFSearchBar(
-                  searchList: list,
-                  searchQueryBuilder: (query, list) => list.where((item) {
-                        return item!
-                            .toString()
-                            .toLowerCase()
-                            .contains(query.toLowerCase());
-                      }).toList(),
-                  overlaySearchListItemBuilder: (dynamic item) => Container(
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          item,
-                          style: const TextStyle(fontSize: 18),
-                        ),
-                      ),
-                  onItemSelected: (dynamic item) {
-                    setState(() {
-                      print('$item');
-                    });
-                  }),
+                searchList: list,
+                searchQueryBuilder: (query, list) => list.where((item) {
+                  return item!
+                      .toString()
+                      .toLowerCase()
+                      .contains(query.toLowerCase());
+                }).toList(),
+                overlaySearchListItemBuilder: (dynamic item) => Container(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    item,
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ),
+                onItemSelected: (dynamic item) {
+                  setState(() {
+                    print('$item');
+                  });
+                },
+              ),
+              SizedBox(
+                height: height * 0.04,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DoctorDetails()));
+                    },
+                    child: Image.asset(
+                      doctor1,
+                      height: height * 0.15,
+                    ),
+                  ),
+                  SizedBox(
+                    height: height * 0.04,
+                  ),
+                  Image.asset(
+                    doctor2,
+                    height: height * 0.15,
+                  ),
+                  SizedBox(
+                    height: height * 0.04,
+                  ),
+                  Image.asset(
+                    doctor3,
+                    height: height * 0.15,
+                  ),
+                ],
+              ),
             ],
           ),
         ),

@@ -61,6 +61,7 @@ class WelcomePage extends StatelessWidget {
                   },
                   child: Text(
                     "Get Start",
+                    selectionColor: Colors.white,
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: "Montserrat",
